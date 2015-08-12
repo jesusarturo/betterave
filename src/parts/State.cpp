@@ -9,11 +9,18 @@ State::~State(){}
 void State::On_start(){}
 
 void State::IO(){
-	Link_input("my_data",		COMFLOAT, 1, &data_in);
-	Link_input("my_data_array",	COMFLOAT, 2, data_in_array);
+	Link_input("latitude",		COMFLOAT, 1, &latitude);
+	Link_input("longitude",		COMFLOAT, 1, &longitude);
+	Link_input("yaw",		COMFLOAT, 1, &yaw);
+	Link_output("x",		COMFLOAT, 1, &x);
+	Link_output("y",		COMFLOAT, 1, &y);
+	Link_output("theta",		COMFLOAT, 1, &theta);
 }
 
 void State::Job(){
 	Critical_receive();
-	cout << "Received data : " << data_in << ", " << data_in_array[0] << ", " << data_in_array[1] << endl;
+	x = latitude;
+	y = longitude;
+	theta = yaw;
+	Critical_send();
 }

@@ -1,7 +1,7 @@
 /*
  * @(#)		State.h
  * @version	2.0
- * @autor	C. Rouvière
+ * @autor	A. Monroy
  */
 
 /**
@@ -27,8 +27,7 @@ private:
 	void Job();
 	void IO();
 
-	float data_in;
-	float data_in_array[2];
+	float latitude, longitude, yaw, x, y, theta;
 };
 
 #endif
